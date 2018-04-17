@@ -1,4 +1,4 @@
-package game.com.twenty_four
+package game.com.twentyfour
 
 import org.junit.Test
 
