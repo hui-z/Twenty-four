@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context="game.com.twenty_four.GameActivity">
+    tools:context="game.com.twenty_four.game.com.twentyfour.containers.play.GameActivity">
 
     <RelativeLayout
         android:layout_height="wrap_content"
