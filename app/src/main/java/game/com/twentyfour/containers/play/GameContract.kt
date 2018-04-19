@@ -19,5 +19,7 @@ interface GameContract {
         fun compute(cal: GamePrsenter.Companion.Calculation)
 
         fun resetPokerPool()
+
+        fun skip()
     }
 }

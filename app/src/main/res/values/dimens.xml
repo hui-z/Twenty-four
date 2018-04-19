@@ -3,6 +3,11 @@
     <dimen name="font_size_large">20sp</dimen>
     <dimen name="font_size_medium">16sp</dimen>
 
-    <dimen name="button_size">50dp</dimen>
+    <dimen name="button_size">60dp</dimen>
+
+    <dimen name="poker_height">240dp</dimen>
+    <dimen name="poker_width">180dp</dimen>
+
+    <dimen name="main_height">380dp</dimen>
 
 </resources>
