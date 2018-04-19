@@ -1,5 +1,6 @@
 package game.com.twentyfour.containers.play
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,10 @@ import android.view.ViewGroup
 import game.com.twenty_four.R
 import game.com.twentyfour.base.BaseFragment
 import game.com.twentyfour.models.Poker
-import kotlinx.android.synthetic.main.activity_game.*
+import kotlinx.android.synthetic.main.fragment_game.view.*
+import android.content.DialogInterface
+import android.app.AlertDialog
+
 
 /**
  * all views should be shown here
@@ -15,9 +19,11 @@ import kotlinx.android.synthetic.main.activity_game.*
  */
 class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
 
+    private lateinit var mRoot: View
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
-            : GameContract.View? {
-        val mRoot = inflater.inflate(R.layout.activity_game, container, false)
+            : View? {
+        mRoot = inflater.inflate(R.layout.fragment_game, container, false)
         setUpListener()
         return mRoot
     }
@@ -28,19 +34,49 @@ class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
     }
 
     private fun setUpListener() {
-        add.setOnClickListener { mPresenter.add() }
-        minus.setOnClickListener { mPresenter.minus() }
-        multi.setOnClickListener { mPresenter.multi() }
-        divide.setOnClickListener { mPresenter.divide() }
+        mRoot.add.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.ADD) }
+        mRoot.minus.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.MINUS) }
+        mRoot.multi.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.MULTIPLE) }
+        mRoot.divide.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.DIVIDE) }
     }
 
-    override fun update(sheetValue: Int, scoreValue: Int, pointValue: Int, poker: Poker) {
-        sheet.text = sheetValue.toString()
-        score.text = scoreValue.toString()
-        point.text = pointValue.toString()
-        suit.text = poker.getSuit().name
-        rangeTop.text = poker.getRange().name
-        rangeBottom.text = poker.getRange().name
+    override fun update(sheetValue: Int, scoreValue: Int, pointValue: Int, poker: Poker?) {
+        mRoot.sheet.text = sheetValue.toString()
+        mRoot.score.text = scoreValue.toString()
+        mRoot.point.text = pointValue.toString()
+
+        if (scoreValue == 24) popupWin()
+        else if (sheetValue == 54) popupFailed()
+
+        if (poker != null) {
+            mRoot.suit.text = poker.getSuit().name
+            mRoot.rangeTop.text = poker.getRange().name
+            mRoot.rangeBottom.text = poker.getRange().name
+        }
+    }
+
+    private fun popupWin() {
+        val builder = AlertDialog.Builder(activity)
+        builder.setMessage("Congratulations, you win")
+                .setPositiveButton("Play again!", DialogInterface.OnClickListener { dialog, id ->
+                    mPresenter.resetPokerPool()
+                })
+                .setNegativeButton("No, thanks.", DialogInterface.OnClickListener { dialog, id ->
+                })
+        builder.create()
+        builder.show()
+    }
+
+    private fun popupFailed() {
+        val builder = AlertDialog.Builder(activity)
+        builder.setMessage("Oooh, you lose")
+                .setPositiveButton("Play again!", DialogInterface.OnClickListener { dialog, id ->
+                    mPresenter.resetPokerPool()
+                })
+                .setNegativeButton("No, thanks.", DialogInterface.OnClickListener { dialog, id ->
+                })
+        builder.create()
+        builder.show()
     }
 
     override fun setPresenter(presenter: GameContract.Presenter) {

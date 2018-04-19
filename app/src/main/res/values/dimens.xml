@@ -3,4 +3,6 @@
     <dimen name="font_size_large">20sp</dimen>
     <dimen name="font_size_medium">16sp</dimen>
 
+    <dimen name="button_size">50dp</dimen>
+
 </resources>

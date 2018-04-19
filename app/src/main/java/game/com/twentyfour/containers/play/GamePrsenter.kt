@@ -19,40 +19,33 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
 
     init {
         mView.setPresenter(this)
-        resetPokerPool()
+
     }
 
     override fun subscribe() {
-        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
+        resetPokerPool()
     }
 
-    private fun randomCreatePoker(): Poker {
-        val poker = mPokerPool[(Random().nextInt(mPokerPool.size))]
-        mCurrentPoker = poker
-        return poker
+    private fun randomCreatePoker(): Poker? {
+        if (mPokerPool.size > 0) {
+            val poker = mPokerPool[(Random().nextInt(mPokerPool.size))]
+            mPokerPool.remove(poker)
+            mCurrentPoker = poker
+            return poker
+        }
+        else return null
     }
 
-    override fun add() {
+    override fun compute(cal: Calculation){
+        when (cal) {
+            Calculation.ADD -> mScore += getRangeValue(mCurrentPoker)
+            Calculation.MINUS -> mScore -=  getRangeValue(mCurrentPoker)
+            Calculation.MULTIPLE -> mScore *=  getRangeValue(mCurrentPoker)
+            Calculation.DIVIDE -> mScore /=  getRangeValue(mCurrentPoker)
+
+        }
         mSheet += 1
-        mScore += getRangeValue(mCurrentPoker)
-        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
-    }
 
-    override fun minus() {
-        mSheet += 1
-        mScore -=  getRangeValue(mCurrentPoker)
-        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
-    }
-
-    override fun multi() {
-        mSheet += 1
-        mScore *= getRangeValue(mCurrentPoker)
-        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
-    }
-
-    override fun divide() {
-        mSheet += 1
-        mScore /= getRangeValue(mCurrentPoker)
         mView.update(mSheet, mScore, mPoint, randomCreatePoker())
     }
 
@@ -65,7 +58,8 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
     override fun unSubscribe() {
     }
 
-    private fun resetPokerPool() {
+    override fun resetPokerPool() {
+        mPokerPool.clear()
         val suitsList = listOf(Suits.Spade, Suits.Heart, Suits.Diamond, Suits.Club)
 
         val rangeList = listOf(Ranges.Ace, Ranges.two, Ranges.three, Ranges.four, Ranges.five,
@@ -76,6 +70,16 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
             rangeList.forEach { range ->
                 mPokerPool.add(Poker(suit, range))
             }
+        }
+        mView.update(0, 0, 0, randomCreatePoker())
+    }
+
+    companion object {
+        enum class Calculation {
+            ADD,
+            MINUS,
+            MULTIPLE,
+            DIVIDE,
         }
     }
 }

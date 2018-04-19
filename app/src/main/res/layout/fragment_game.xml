@@ -103,32 +103,32 @@
 
         <Button
             android:id="@+id/add"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
             android:layout_above="@id/poker"
             android:text="+"
             android:layout_centerHorizontal="true"/>
 
         <Button
             android:id="@+id/minus"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
             android:layout_below="@id/poker"
             android:text="-"
             android:layout_centerHorizontal="true"/>
 
         <Button
             android:id="@+id/multi"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
             android:layout_toStartOf="@id/poker"
             android:text="*"
             android:layout_centerVertical="true"/>
 
         <Button
             android:id="@+id/divide"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
             android:layout_toEndOf="@id/poker"
             android:text="/"
             android:layout_centerVertical="true"/>

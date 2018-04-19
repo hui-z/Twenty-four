@@ -11,18 +11,13 @@ interface GameContract {
 
     interface View : BaseView<Presenter> {
 
-        fun update(sheet: Int, score: Int, point: Int, poker: Poker)
+        fun update(sheet: Int, score: Int, point: Int, poker: Poker?)
     }
 
     interface Presenter : BasePresenter {
 
-        fun add()
+        fun compute(cal: GamePrsenter.Companion.Calculation)
 
-        fun minus()
-
-        fun multi()
-
-        fun divide()
-
+        fun resetPokerPool()
     }
 }

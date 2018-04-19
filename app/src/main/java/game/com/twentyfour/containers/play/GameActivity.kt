@@ -30,6 +30,7 @@ class GameActivity : BaseActivity() {
         transaction.addToBackStack(gameFragment.javaClass.simpleName)
         transaction.commit()
     }
+    
 
     companion object {
         fun explicitStart(context: Context) {
