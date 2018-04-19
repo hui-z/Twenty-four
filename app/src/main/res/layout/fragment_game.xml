@@ -1,0 +1,139 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:id="@+id/sheet"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="sheet"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/score"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="score"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+            <TextView
+                android:id="@+id/point"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="point"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/poker"
+            android:layout_height="240dp"
+            android:layout_width="180dp"
+            android:background="@drawable/ic_launcher_background"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/rangeTop"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/suit"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="方块" />
+
+            <TextView
+                android:id="@+id/rangeBottom"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="0" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/add"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
+            android:layout_above="@id/poker"
+            android:text="+"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/minus"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
+            android:layout_below="@id/poker"
+            android:text="-"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/multi"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
+            android:layout_toStartOf="@id/poker"
+            android:text="*"
+            android:layout_centerVertical="true"/>
+
+        <Button
+            android:id="@+id/divide"
+            android:layout_height="@dimen/button_size"
+            android:layout_width="@dimen/button_size"
+            android:layout_toEndOf="@id/poker"
+            android:text="/"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
