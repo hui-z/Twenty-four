@@ -29,7 +29,6 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
     private fun randomCreatePoker(): Poker? {
         if (mPokerPool.size > 0) {
             val poker = mPokerPool[(Random().nextInt(mPokerPool.size))]
-            mPokerPool.remove(poker)
             mCurrentPoker = poker
             return poker
         }
@@ -45,7 +44,7 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
 
         }
         mSheet += 1
-
+        mPokerPool.remove(mCurrentPoker)
         mView.update(mSheet, mScore, mPoint, randomCreatePoker())
     }
 
@@ -72,6 +71,10 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
             }
         }
         mView.update(0, 0, 0, randomCreatePoker())
+    }
+
+    override fun skip() {
+        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
     }
 
     companion object {

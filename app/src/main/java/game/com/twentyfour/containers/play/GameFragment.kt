@@ -38,6 +38,7 @@ class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
         mRoot.minus.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.MINUS) }
         mRoot.multi.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.MULTIPLE) }
         mRoot.divide.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.DIVIDE) }
+        mRoot.skip.setOnClickListener {mPresenter.skip()}
     }
 
     override fun update(sheetValue: Int, scoreValue: Int, pointValue: Int, poker: Poker?) {
