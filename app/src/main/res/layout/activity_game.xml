@@ -1,79 +1,105 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context="game.com.twenty_four.game.com.twentyfour.containers.play.GameActivity">
+    android:padding="20dp">
 
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
-        <TextView
-            android:id="@+id/sheet"
+        <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_alignParentStart="true"
-            android:textSize="@dimen/font_size_large"
-            android:text="0"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_toEndOf="@id/sheet"
-            android:layout_alignBaseline="@id/sheet"
-            android:textSize="@dimen/font_size_medium"
-            android:text="sheet"
-            android:layout_marginStart="5dp"/>
-        <TextView
-            android:id="@+id/score"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="@dimen/font_size_large"
-            android:text="0"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_toEndOf="@id/score"
-            android:textSize="@dimen/font_size_medium"
-            android:text="score"
-            android:layout_alignBaseline="@id/sheet"
-            android:layout_marginStart="5dp"/>
+            android:orientation="horizontal"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:id="@+id/sheet"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="sheet"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/point_text"
+        <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:textSize="@dimen/font_size_medium"
-            android:text="point"
-            android:layout_marginStart="5dp"
-            android:layout_alignBaseline="@id/sheet"/>
-        <TextView
-            android:id="@+id/point"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/score"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="score"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_toStartOf="@id/point_text"
-            android:textSize="@dimen/font_size_large"
-            android:text="0" />
-
-
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true">
+            <TextView
+                android:id="@+id/point"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_large"
+                android:text="0" />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/font_size_medium"
+                android:text="point"
+                android:layout_marginStart="5dp"/>
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-        <ImageButton
+        <RelativeLayout
             android:id="@+id/poker"
             android:layout_height="240dp"
             android:layout_width="180dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/ic_launcher_background"
-            android:background="@null"
+            android:background="@drawable/ic_launcher_background"
             android:layout_margin="10dp"
-            android:scaleType="fitXY"/>
+            android:padding="10dp"
+            android:layout_centerInParent="true">
+            <TextView
+                android:id="@+id/rangeTop"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/suit"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="方块" />
+
+            <TextView
+                android:id="@+id/rangeBottom"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="0" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/add"
