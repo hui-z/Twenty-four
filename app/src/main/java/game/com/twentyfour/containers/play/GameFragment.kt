@@ -10,6 +10,7 @@ import game.com.twentyfour.models.Poker
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import android.content.DialogInterface
 import android.app.AlertDialog
+import kotlinx.android.synthetic.main.fragment_game.*
 
 /**
  * all views should be shown here
@@ -37,6 +38,11 @@ class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
         mRoot.multi.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.MULTIPLE) }
         mRoot.divide.setOnClickListener { mPresenter.compute(GamePrsenter.Companion.Calculation.DIVIDE) }
         mRoot.skip.setOnClickListener {mPresenter.skip()}
+        mRoot.poker.setCallbacks(
+                {mPresenter.compute(GamePrsenter.Companion.Calculation.ADD)},
+                {mPresenter.compute(GamePrsenter.Companion.Calculation.MINUS)},
+                {mPresenter.compute(GamePrsenter.Companion.Calculation.MULTIPLE)},
+                {mPresenter.compute(GamePrsenter.Companion.Calculation.DIVIDE)})
     }
 
     override fun update(sheetValue: Int, scoreValue: Int, pointValue: Int, poker: Poker?) {
