@@ -1,6 +1,5 @@
 package game.com.twentyfour.containers.play
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import game.com.twentyfour.models.Poker
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import android.content.DialogInterface
 import android.app.AlertDialog
-
 
 /**
  * all views should be shown here
@@ -47,7 +45,7 @@ class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
         mRoot.point.text = pointValue.toString()
 
         if (scoreValue == 24) popupWin()
-        else if (sheetValue == 54) popupFailed()
+        else if (sheetValue == 52) popupFailed()
 
         if (poker != null) {
             mRoot.suit.text = poker.getSuit().name
@@ -71,10 +69,10 @@ class GameFragment : BaseFragment<GameContract.Presenter>(), GameContract.View {
     private fun popupFailed() {
         val builder = AlertDialog.Builder(activity)
         builder.setMessage("Oooh, you lose")
-                .setPositiveButton("Play again!", DialogInterface.OnClickListener { dialog, id ->
+                .setPositiveButton("Play again!", DialogInterface.OnClickListener { _, _ ->
                     mPresenter.resetPokerPool()
                 })
-                .setNegativeButton("No, thanks.", DialogInterface.OnClickListener { dialog, id ->
+                .setNegativeButton("No, thanks.", DialogInterface.OnClickListener { _, _ ->
                 })
         builder.create()
         builder.show()

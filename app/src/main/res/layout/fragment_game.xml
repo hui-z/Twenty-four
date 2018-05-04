@@ -3,16 +3,18 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="10dp">
 
     <RelativeLayout
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_width="match_parent">
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
             <TextView
                 android:id="@+id/sheet"
                 android:layout_height="wrap_content"
@@ -50,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentEnd="true">
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
             <TextView
                 android:id="@+id/point"
                 android:layout_height="wrap_content"
@@ -67,14 +70,15 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_height="@dimen/main_height"
+        android:layout_weight="8"
+        android:layout_height="0dp"
         android:layout_width="match_parent">
 
         <RelativeLayout
             android:id="@+id/poker"
             android:layout_height="@dimen/poker_height"
             android:layout_width="@dimen/poker_width"
-            android:background="@drawable/ic_launcher_background"
+            android:background="@color/colorPrimary"
             android:layout_margin="10dp"
             android:padding="10dp"
             android:layout_centerInParent="true">
@@ -82,14 +86,16 @@
                 android:id="@+id/rangeTop"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="0" />
+                android:text="0"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/suit"
                 android:layout_centerInParent="true"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="方块" />
+                android:text="方块"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/rangeBottom"
@@ -97,7 +103,8 @@
                 android:layout_width="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:text="0" />
+                android:text="0"
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
@@ -107,7 +114,10 @@
             android:layout_width="@dimen/button_size"
             android:layout_above="@id/poker"
             android:text="+"
-            android:layout_centerHorizontal="true"/>
+            android:textColor="@color/grey_9"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/font_size_medium"
+            android:background="@null"/>
 
         <Button
             android:id="@+id/minus"
@@ -115,6 +125,9 @@
             android:layout_width="@dimen/button_size"
             android:layout_below="@id/poker"
             android:text="-"
+            android:textColor="@color/grey_9"
+            android:background="@null"
+            android:textSize="@dimen/font_size_medium"
             android:layout_centerHorizontal="true"/>
 
         <Button
@@ -123,6 +136,9 @@
             android:layout_width="@dimen/button_size"
             android:layout_toStartOf="@id/poker"
             android:text="*"
+            android:textColor="@color/grey_9"
+            android:textSize="@dimen/font_size_medium"
+            android:background="@null"
             android:layout_centerVertical="true"/>
 
         <Button
@@ -131,22 +147,19 @@
             android:layout_width="@dimen/button_size"
             android:layout_toEndOf="@id/poker"
             android:text="/"
+            android:textColor="@color/grey_9"
+            android:background="@null"
+            android:textSize="@dimen/font_size_medium"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 
-    <LinearLayout
+    <game.com.twentyfour.widgets.RoundCornerButton
+        android:id="@+id/skip"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <Button
-            android:id="@+id/skip"
-            android:layout_height="@dimen/button_size"
-            android:layout_width="match_parent"
-            android:text="skip" />
-
-    </LinearLayout>
-
+        android:text="skip"
+        android:textColor="@color/white"/>
 
 </LinearLayout>
