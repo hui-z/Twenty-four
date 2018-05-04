@@ -70,7 +70,10 @@ class GamePrsenter(private val mView: GameContract.View) : GameContract.Presente
                 mPokerPool.add(Poker(suit, range))
             }
         }
-        mView.update(0, 0, 0, randomCreatePoker())
+        mScore = 0
+        mSheet = 0
+        mPoint = 0
+        mView.update(mSheet, mScore, mPoint, randomCreatePoker())
     }
 
     override fun skip() {

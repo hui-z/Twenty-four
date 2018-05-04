@@ -1,7 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="font_size_large">20sp</dimen>
-    <dimen name="font_size_medium">16sp</dimen>
+    <dimen name="font_size_large">30sp</dimen>
+    <dimen name="font_size_medium">26sp</dimen>
 
     <dimen name="button_size">60dp</dimen>
 
@@ -9,5 +9,6 @@
     <dimen name="poker_width">180dp</dimen>
 
     <dimen name="main_height">380dp</dimen>
+    <dimen name="radius_card_view">2dp</dimen>
 
 </resources>

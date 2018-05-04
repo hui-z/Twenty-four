@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="game.com.twentyfour.containers.StartActivity">
 
     <TextView
@@ -11,21 +12,22 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:keepScreenOn="true"
-        android:text="Ready??"
-        android:textColor="#33b5e5"
+        android:text="Ready"
+        android:textColor="@color/colorPrimary"
         android:textSize="50sp"
         android:textStyle="bold" />
 
 
-    <Button
+    <game.com.twentyfour.widgets.RoundCornerButton
         android:id="@+id/go"
         android:layout_below="@id/ready"
         android:layout_marginTop="20dp"
-        style="?metaButtonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
         android:text="Go!!"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        app:corner_radius="5dp"/>
 
 </RelativeLayout>

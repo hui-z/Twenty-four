@@ -9,4 +9,11 @@
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="RoundCornerButton">
+        <attr name="corner_radius" format="dimension"/>
+        <attr name="background_color_normal" format="color"/>
+        <attr name="background_color_pressed" format="color"/>
+        <attr name="background_color_disabled" format="color"/>
+    </declare-styleable>
+
 </resources>
